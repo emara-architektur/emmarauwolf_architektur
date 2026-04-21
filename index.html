@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EMARA Architektur</title>
 
+  <!-- Social Preview / Teilen -->
+  <meta property="og:title" content="EMARA Architektur" />
+  <meta property="og:description" content="Architektur Portfolio – Entwurf · Konzept · Design" />
+  <meta property="og:image" content="https://emara-architektur.github.io/emara-architektur/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://emara-architektur.github.io/emara-architektur/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EMARA Architektur" />
+  <meta name="twitter:description" content="Architektur Portfolio – Entwurf · Konzept · Design" />
+  <meta name="twitter:image" content="https://emara-architektur.github.io/emara-architektur/logo.png" />
+
+  <link rel="icon" href="logo.png" />
+
   <style>
     :root {
       --bg: #f8eeef;
@@ -92,7 +106,7 @@
 
     .nav {
       display: flex;
-      gap: 28px;
+      gap: 26px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -100,7 +114,7 @@
     .nav a {
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       font-size: 13px;
       opacity: 0.95;
       transition: opacity 0.18s ease;
@@ -121,7 +135,10 @@
     .card,
     .image-panel,
     .info-card,
-    .project-card {
+    .project-card,
+    .news-card,
+    .about-card,
+    .contact-card {
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
@@ -280,8 +297,8 @@
       color: var(--text);
     }
 
-    /* Projects */
-    .projects {
+    /* Shared section styles */
+    .section {
       margin-top: 86px;
     }
 
@@ -294,7 +311,7 @@
       font-size: 12px;
     }
 
-    .projects h2 {
+    .section h2 {
       margin: 0 0 26px;
       font-family: Georgia, "Times New Roman", serif;
       font-size: 44px;
@@ -302,6 +319,38 @@
       font-weight: 600;
     }
 
+    /* News */
+    .news-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .news-card {
+      background: var(--panel);
+      padding: 24px 26px;
+    }
+
+    .news-date {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .news-title {
+      font-size: 22px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      margin-bottom: 10px;
+    }
+
+    .news-text {
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    /* Projects */
     .project-list {
       display: grid;
       grid-template-columns: 1fr;
@@ -332,6 +381,74 @@
       margin-right: 10px;
     }
 
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+    }
+
+    .about-card {
+      background: var(--panel);
+      padding: 30px 28px;
+    }
+
+    .about-card h3 {
+      margin: 0 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      color: var(--accent);
+    }
+
+    .about-card p,
+    .about-card li {
+      font-size: 17px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .about-card ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .cv-button {
+      margin-top: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: linear-gradient(135deg, var(--panel) 0%, var(--bg-soft) 100%);
+      padding: 30px 28px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .contact-link {
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.6);
+      font-size: 17px;
+    }
+
     /* Footer */
     .footer {
       margin-top: 66px;
@@ -349,7 +466,8 @@
 
     /* Tablet */
     @media (max-width: 1024px) {
-      .hero {
+      .hero,
+      .about-grid {
         grid-template-columns: 1fr;
       }
 
@@ -376,7 +494,7 @@
       }
     }
 
-    /* iPhone / mobile */
+    /* Mobile / iPhone */
     @media (max-width: 640px) {
       .container {
         padding: 18px 14px 52px;
@@ -454,7 +572,8 @@
         flex-direction: column;
       }
 
-      .btn {
+      .btn,
+      .cv-button {
         width: 100%;
         min-height: 50px;
         font-size: 13px;
@@ -479,22 +598,31 @@
         gap: 16px;
       }
 
-      .info-card {
-        padding: 24px 20px;
+      .info-card,
+      .news-card,
+      .project-card,
+      .about-card,
+      .contact-card {
+        padding: 22px 18px;
         min-height: auto;
         border-radius: 20px;
       }
 
-      .info-card h3 {
+      .info-card h3,
+      .about-card h3 {
         font-size: 24px;
         margin-bottom: 14px;
       }
 
-      .info-card p {
+      .info-card p,
+      .about-card p,
+      .about-card li,
+      .news-text,
+      .contact-link {
         font-size: 16px;
       }
 
-      .projects {
+      .section {
         margin-top: 56px;
       }
 
@@ -502,22 +630,22 @@
         font-size: 11px;
       }
 
-      .projects h2 {
+      .section h2 {
         font-size: 32px;
         margin-bottom: 18px;
       }
 
-      .project-list {
+      .project-list,
+      .news-list {
         gap: 14px;
-      }
-
-      .project-card {
-        padding: 18px 16px;
-        border-radius: 18px;
       }
 
       .project-title {
         font-size: 16px;
+      }
+
+      .news-title {
+        font-size: 20px;
       }
 
       .footer {
@@ -539,9 +667,10 @@
       </div>
 
       <nav class="nav">
-        <a href="#about">Über mich</a>
-        <a href="#focus">Fokus</a>
+        <a href="#new">New</a>
         <a href="#projects">Projekte</a>
+        <a href="#about">Über mich</a>
+        <a href="#contact">Kontakt</a>
         <a href="https://instagram.com/emara.architektur" target="_blank" rel="noopener noreferrer">Instagram</a>
       </nav>
     </header>
@@ -573,14 +702,14 @@
     </section>
 
     <section class="info-grid">
-      <div class="info-card" id="about">
-        <h3>Über mich</h3>
+      <div class="info-card">
+        <h3>Kurzprofil</h3>
         <p>
           Architekturstudentin mit Fokus auf Entwurf, Gestaltung und konzeptionelles Denken.
         </p>
       </div>
 
-      <div class="info-card" id="focus">
+      <div class="info-card">
         <h3>Fokus</h3>
         <p>
           Entwurf · Konzept · Wohnbau · Nachhaltigkeit · Öffentliche Gebäude
@@ -595,7 +724,30 @@
       </div>
     </section>
 
-    <section class="projects" id="projects">
+    <section class="section" id="new">
+      <div class="section-label">Aktuell</div>
+      <h2>New</h2>
+
+      <div class="news-list">
+        <div class="news-card">
+          <div class="news-date">April 2026</div>
+          <div class="news-title">Aktuelle Arbeiten & Einblicke</div>
+          <div class="news-text">
+            Hier kannst du künftig neue Entwürfe, Modelle, Renderings, Wettbewerbe oder laufende Projekte posten.
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-date">Platzhalter</div>
+          <div class="news-title">Neues Projekt oder Update</div>
+          <div class="news-text">
+            Zum Beispiel: „Neuer Entwurf für die Vogelbeobachtungsstation“, „Modellbau Eventpavillon“ oder „Finale Präsentation Grünes Forum“.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
       <div class="section-label">Portfolio</div>
       <h2>Projekte</h2>
 
@@ -617,6 +769,45 @@
         </div>
         <div class="project-card">
           <div class="project-title"><span class="project-number">06</span>Schwimmbadumnutzung</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-label">Profil</div>
+      <h2>Über mich</h2>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Persönliches Profil</h3>
+          <p>
+            Hier kannst du später deinen persönlichen Text einfügen: was dich an Architektur begeistert, wie du entwirfst und welche Haltung deine Projekte prägt.
+          </p>
+
+          <a href="#" class="cv-button">Lebenslauf ansehen</a>
+        </div>
+
+        <div class="about-card">
+          <h3>Ausbildung & Skills</h3>
+          <ul>
+            <li>Architekturstudium</li>
+            <li>Entwurf & Konzeptentwicklung</li>
+            <li>Modellbau & Darstellung</li>
+            <li>Adobe / CAD / Rendering – später ergänzbar</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-label">Kontakt</div>
+      <h2>Kontakt</h2>
+
+      <div class="contact-card">
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:deineemail@example.com">deineemail@example.com</a>
+          <a class="contact-link" href="https://instagram.com/emara.architektur" target="_blank" rel="noopener noreferrer">@emara.architektur</a>
+          <div class="contact-link">Augsburg / Rosenheim</div>
         </div>
       </div>
     </section>
