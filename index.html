@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EMARA Architektur</title>
+
   <style>
     :root {
       --bg: #f8eeee;
@@ -15,13 +16,7 @@
       --line: #dfbec0;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -32,389 +27,207 @@
 
     .container {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 24px 80px;
+      margin: auto;
+      padding: 40px 20px 80px;
     }
 
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 24px;
-      padding: 12px 0 28px;
-      margin-bottom: 44px;
+      margin-bottom: 40px;
       border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
       flex-wrap: wrap;
     }
 
     .brand {
-      color: var(--soft-accent);
-      font-size: 14px;
-      text-transform: uppercase;
       letter-spacing: 0.35em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--soft-accent);
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
-      transition: opacity 0.2s ease;
+      color: var(--soft-accent);
     }
 
-    .nav-links a:hover {
-      opacity: 0.6;
+    .nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--soft-accent);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
     }
 
     .card {
       border: 1px solid var(--line);
-      border-radius: 34px;
-      box-shadow: 0 10px 30px rgba(120, 65, 69, 0.06);
-    }
-
-    .hero-copy {
-      background: linear-gradient(135deg, var(--panel) 0%, #f6e7e8 100%);
-      padding: 56px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 22px;
-      padding: 10px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.6);
-      color: var(--soft-accent);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
+      border-radius: 30px;
+      padding: 50px;
+      background: var(--panel);
     }
 
     h1 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Georgia, serif;
+      font-size: 80px;
       color: var(--accent);
-      font-size: clamp(58px, 9vw, 112px);
-      line-height: 0.95;
-      letter-spacing: 0.08em;
-      font-weight: 500;
+      margin: 0;
+      letter-spacing: 0.1em;
     }
 
     .sub {
-      margin-top: 12px;
+      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: 0.4em;
       color: var(--soft-accent);
-      font-size: 13px;
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--accent);
-      font-size: clamp(34px, 4vw, 54px);
-      line-height: 1.08;
-      font-weight: 500;
     }
 
     .lead {
-      margin-top: 28px;
-      max-width: 720px;
-      font-size: 20px;
-      line-height: 1.8;
-      color: var(--text);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 34px;
+      margin-top: 25px;
+      font-size: 18px;
+      line-height: 1.7;
     }
 
     .btn {
+      margin-top: 30px;
       display: inline-block;
-      padding: 14px 24px;
+      padding: 12px 22px;
       border-radius: 999px;
       text-decoration: none;
       font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      transition: 0.2s ease;
+      letter-spacing: 0.2em;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #fff7f7;
-      border: 1px solid var(--accent);
-    }
-
-    .btn-primary:hover {
-      opacity: 0.9;
+      color: white;
     }
 
     .btn-secondary {
+      border: 1px solid var(--line);
       color: var(--accent);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.55);
+      margin-left: 10px;
     }
 
-    .btn-secondary:hover {
-      background: #f6e6e7;
-    }
-
-    .hero-visual {
-      background: linear-gradient(180deg, #f3e1e2 0%, var(--panel-2) 100%);
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .image-box {
+      border-radius: 30px;
       overflow: hidden;
-    }
-
-    .photo-wrap {
-      overflow: hidden;
-      border-radius: 28px;
       border: 1px solid var(--line);
-      background: #f8eded;
-      min-height: 420px;
+      background: var(--panel-2);
     }
 
-    .photo-wrap img {
+    .image-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      display: block;
       filter: grayscale(100%);
-    }
-
-    .mini-logo {
-      width: 86px;
-      height: 86px;
-      border: 1px solid #c86a6f;
-      border-radius: 50%;
-      position: relative;
-      margin-top: 20px;
-      background: rgba(255,255,255,0.45);
-    }
-
-    .mini-logo .center {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      width: 2px;
-      height: 38px;
-      transform: translateX(-50%);
-      background: var(--accent);
-    }
-
-    .mini-logo .left,
-    .mini-logo .right {
-      position: absolute;
-      bottom: 16px;
-      width: 2px;
-      height: 20px;
-      background: var(--accent);
-    }
-
-    .mini-logo .left {
-      left: 24px;
-    }
-
-    .mini-logo .right {
-      right: 24px;
-    }
-
-    .mini-logo .diag-left,
-    .mini-logo .diag-right {
-      position: absolute;
-      top: 38px;
-      width: 22px;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .mini-logo .diag-left {
-      left: 24px;
-      transform: rotate(36deg);
-      transform-origin: left center;
-    }
-
-    .mini-logo .diag-right {
-      right: 24px;
-      transform: rotate(-36deg);
-      transform-origin: right center;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 28px;
-      margin-bottom: 18px;
+      gap: 20px;
+      margin-top: 30px;
     }
 
     .panel {
-      background: rgba(255,255,255,0.45);
+      padding: 25px;
+      border-radius: 25px;
       border: 1px solid var(--line);
-      border-radius: 28px;
-      box-shadow: 0 10px 24px rgba(120, 65, 69, 0.05);
-      padding: 28px;
-    }
-
-    .panel-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.3em;
-      color: var(--soft-accent);
+      background: var(--panel);
     }
 
     .panel h3 {
-      margin: 14px 0 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: Georgia, serif;
       color: var(--accent);
-      font-size: 28px;
-      font-weight: 500;
-    }
-
-    .muted {
-      margin-top: 14px;
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text);
+      margin-top: 10px;
     }
 
     .footer {
-      margin-top: 18px;
-      padding-top: 24px;
+      margin-top: 40px;
       border-top: 1px solid var(--line);
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--soft-accent);
       font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
+      color: var(--soft-accent);
+      flex-wrap: wrap;
     }
 
-    @media (max-width: 920px) {
-      .hero,
-      .grid {
+    @media (max-width: 900px) {
+      .hero, .grid {
         grid-template-columns: 1fr;
       }
 
-      .hero-copy {
-        padding: 34px;
-      }
-
-      .lead {
-        font-size: 18px;
-      }
-
-      .photo-wrap {
-        min-height: 320px;
+      h1 {
+        font-size: 50px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <nav class="nav">
-      <div class="brand">EMARA Architektur</div>
-      <div class="nav-links">
-        <a href="#about">Über mich</a>
-        <a href="#focus">Fokus</a>
-        <a href="https://instagram.com/emara.architektur" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </nav>
 
-    <section class="hero">
-      <div class="card hero-copy">
-        <span class="eyebrow">Entwurf · Konzept · Design</span>
-        <h1>EMARA</h1>
-        <div class="sub">Architekturstudentin</div>
+<div class="container">
 
-        <p class="lead">
-          Ich entwerfe Räume, die Menschen berühren – so, wie mich der Entwurfsprozess selbst begeistert.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://instagram.com/emara.architektur" target="_blank" rel="noopener noreferrer">
-            Instagram ansehen
-          </a>
-          <a class="btn btn-secondary" href="#about">
-            Mehr erfahren
-          </a>
-        </div>
-      </div>
-
-      <div class="card hero-visual">
-        <div class="photo-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80"
-            alt="Minimalistischer architektonischer Innenraum"
-          />
-        </div>
-
-        <div class="mini-logo" aria-hidden="true">
-          <span class="center"></span>
-          <span class="left"></span>
-          <span class="right"></span>
-          <span class="diag-left"></span>
-          <span class="diag-right"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid" id="about">
-      <article class="panel">
-        <div class="panel-label">Über mich</div>
-        <h3>Architekturstudentin</h3>
-        <p class="muted">
-          Mit einem Blick für Klarheit, Atmosphäre und Komposition entwickle ich Entwürfe,
-          die ruhig, präzise und emotional wirken.
-        </p>
-      </article>
-
-      <article class="panel" id="focus">
-        <div class="panel-label">Fokus</div>
-        <h3>Entwurf & Konzept</h3>
-        <p class="muted">
-          Entwurf · Konzept · Wohnbau · Nachhaltigkeit · öffentliche Gebäude
-        </p>
-      </article>
-
-      <article class="panel">
-        <div class="panel-label">Standort</div>
-        <h3>Augsburg / Rosenheim</h3>
-        <p class="muted">
-          Instagram: @emara.architektur<br />
-          Website im Aufbau
-        </p>
-      </article>
-    </section>
-
-    <footer class="footer">
-      <span>EMARA Architektur</span>
-      <span>Architekturstudentin</span>
-      <span>Augsburg / Rosenheim</span>
-    </footer>
+  <div class="nav">
+    <div class="brand">EMARA ARCHITEKTUR</div>
+    <div>
+      <a href="#">ÜBER MICH</a>
+      <a href="#">FOKUS</a>
+      <a href="https://instagram.com/emara.architektur">INSTAGRAM</a>
+    </div>
   </div>
+
+  <div class="hero">
+
+    <div class="card">
+      <h1>EMARA</h1>
+      <div class="sub">ARCHITEKTURSTUDENTIN</div>
+
+      <p class="lead">
+        Ich entwerfe Räume, die Menschen berühren – so, wie mich der Entwurfsprozess selbst begeistert.
+      </p>
+
+      <a class="btn btn-primary" href="https://instagram.com/emara.architektur">INSTAGRAM</a>
+      <a class="btn btn-secondary" href="#">MEHR</a>
+    </div>
+
+    <div class="image-box">
+      <!-- DEIN BILD -->
+      <img src="emma-stuhl.jpg" alt="Emma Rauwolf auf Sessel">
+    </div>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="panel">
+      <h3>Über mich</h3>
+      <p>Architekturstudentin mit Fokus auf Entwurf und Gestaltung.</p>
+    </div>
+
+    <div class="panel">
+      <h3>Fokus</h3>
+      <p>Entwurf · Konzept · Wohnbau · Nachhaltigkeit · öffentliche Gebäude</p>
+    </div>
+
+    <div class="panel">
+      <h3>Standort</h3>
+      <p>Augsburg / Rosenheim</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>EMARA</span>
+    <span>ARCHITEKTUR</span>
+    <span>2026</span>
+  </div>
+
+</div>
+
 </body>
 </html>
